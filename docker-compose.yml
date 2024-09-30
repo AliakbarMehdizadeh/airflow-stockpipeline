@@ -1,0 +1,35 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest  
+    environment:
+      POSTGRES_USER: stock_user
+      POSTGRES_PASSWORD: stock_pass
+      POSTGRES_DB: stock_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+
+  airflow:
+    image: apache/airflow:2.10.2  
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://stock_user:stock_pass@postgres:5432/stock_db
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor  # SequentialExecutor for local testing
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - ./dags:/opt/airflow/dags  # Mount your DAGs directory
+      - ./requirements.txt:/opt/airflow/requirements.txt  # Mount requirements file
+    command: >
+      bash -c "pip install -r /opt/airflow/requirements.txt &&  # Install dependencies
+               airflow db init && 
+               airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin || true &&  # Create admin user only if it doesn't exist
+               airflow webserver & airflow scheduler"
+volumes:
+  postgres_data:  # Named volume for Postgres data persistence

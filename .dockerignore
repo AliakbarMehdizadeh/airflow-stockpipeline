@@ -1,0 +1,35 @@
+env/
+__pycache__/
+*.pyc
+.DS_Store
+.git/
+.gitignore
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+env/
+stock-pipeline-env/
+.stock-pipeline-env
+
+# Ignore environment variable files
+.env
+
+# Ignore version control files
+.git/
+.gitignore
+
+# Ignore build files
+build/
+dist/
+*.egg-info/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
+
+

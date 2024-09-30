@@ -1,0 +1,6 @@
+pandas
+alpha_vantage
+SQLAlchemy
+psycopg2-binary
+matplotlib
+plotly
