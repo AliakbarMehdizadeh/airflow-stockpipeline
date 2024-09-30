@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 ################################################# API ####################################
 
-API_KEY = '04Q03SXFFJPMS0NB'
+API_KEY = 'your-api_key'
 symbol = 'AAPL'
 
 ################################################# EXTRACT ####################################
