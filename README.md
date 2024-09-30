@@ -26,10 +26,11 @@ The **Airflow Stock Pipeline** is a data pipeline project that automates the ext
    ```bash
    git clone https://github.com/AliakbarMehdizadeh/airflow-stockpipeline
    cd airflow-stockpipeline
-2. Build and start the services:
+2. Replace you Alpha Vintage API_KEY at /dags/airflow-stockpipeline.py
+3. Build and start the services:
    ```bash
    docker-compose up --build -d
-3. Create the Dashboard
+4. Create the Dashboard
    ```bash
    streamlit run Dashboard.py
 
