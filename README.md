@@ -4,7 +4,7 @@
 
 The **Airflow Stock Pipeline** is a data pipeline project that automates the extraction, transformation, and loading (ETL) of stock market data into a PostgreSQL database. Built with Apache Airflow for orchestration and Docker for containerization, it efficiently fetches real-time stock data and makes it accessible for analysis through an API.
 
-![Sample Output](sample_usage.png)
+![Sample Output](SAMPLE.png)
 
 ## Features
 
